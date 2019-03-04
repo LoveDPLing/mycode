@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组方法</title>
+</head>
+<body>
+  <p>数组的增删改</p>
+  <h2>slice() and splice()</h2>
+  <p>
+    <h3>slice()注意点</h3>
+    <ul>
+      <li>从左到右复制，负数也是如此</li>
+      <li>无参，复制整个数组</li>
+      <li>一个参数，从当前参数的索引复制到数组结束</li>
+      <li>两个参数，左闭右开，即包含开始，不包含结束</li>
+      <li>参数为负数，从数组尾部开始计算</li>
+    </ul>
+    <h3>强大的splice()方法，增删改</h3>
+    <p>返回值：由被删除的元素组成一个数组，没有删除元素，则返回空数组</p>
+    <p>注意：对原数组进行修改</p>
+    <li>array.splice(start[, deleteCount[, item1[, item2[, ...]]]])</li>
+    <ul>
+      <h4>参数start</h4>
+      <li>参数start必须，从0计数，超出数组长度，则从数组末尾添加内容</li>
+      <li>负值，表示从数组末尾开始的第几位，从-1计数</li>
+      <li>负数的绝对值大于数组的长度，则表示开始位置为第0位</li>
+    </ul>
+    <ul>
+    <h4>参数deleteCount可选，要移除的数组元素的个数</h4>
+    <li>0或者负数，不移除元素，这种情况下，至少应添加一个新元素</li>
+    <li>大于start之后的元素的总数，则从start后面的元素都被删除，含第start位</li>
+    <li>被省略，则相当于arr.length - start</li>
+    </ul>
+    <ul>
+      <h4>item1, item2, ...可选</h4>
+      <li>添加近数组的元素，从start开始</li>
+      <li>不指定，则只删除数组元素</li>
+    </ul>
+  </p>
+  <h3>concat()</h3>
+  <p>返回值：新的Array实例</p>
+  <script>
+    // 1.slice 复制数组的一部分，返回一个新数组，原数组不改变
+    // array.slice(begin, end)
+    const broArr = ["洋洋", "孝鹏", "我凯", "我"];
+    var broArr1 = broArr.slice();
+    var broArr2 = broArr.slice(2);
+    var broArr3 = broArr.slice(1, 3);
+    var broArr4 = broArr.slice(-1);
+    var broArr5 = broArr.slice(-3, -1);
+    // 2. splice()增删改
+    // splice(start, deleteCount, item1, item2, ...)
+    // 参数start必须
+    // 参数deleteCount控制是删除还是添加，省略相当于arr.length-start
+    // 2.1 插入
+    var myFish = ["angel", "clown", "mandarin", "surgeon"];
+    // 从第二个元素开始删除0个元素，插入drum
+    var removed = myFish.splice(2, 0, "drum"); // removed = []
+    // 2.2 删除
+    // 从第3为开始删除一个元素,removed = ["mandarin"]
+    // var removed = myFish.splice(3, 1);
+    // 2.3 先删除，再插入 removed = ["drum"]
+    // var removed = myFish.splice(2, 1, "trumpet")
+
+    // 3. concat()
+    // 连接数组
+    var num1 = [1, 2, 3],
+        num2 = [4, 5, 6],
+        num3 = [7, 8, 9];
+    var nums = num1.concat(num2, num3);
+  </script>
+</body>
+</html>
