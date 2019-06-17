@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6中新增数值遍历方法</title>
+</head>
+<body>
+    <script>
+        // 都返回一个遍历器对象，可以用for...of循环进行遍历，
+        // 唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。
+        let arr = [1, 2, 5, 7, 9];
+        // 拿到index
+        for (let index of arr.keys()) {
+        console.log(index);
+        }
+        // 拿到值
+        for (let item of arr.values()) {
+            console.log(item);
+        }   
+    </script>
+</body>
+</html>
