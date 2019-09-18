@@ -13,6 +13,6 @@ let domObj = $("#div").get(0)
 ### DOM对象转成jq对象
 DOM对象只需要调用jq的$()方法就可包装成jq对象
 ```
-let domObj = document.getElementById(""div)
+let domObj = document.getElementById("div")
 let $domObj = $(domObj)
 ```
